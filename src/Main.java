@@ -7,6 +7,7 @@ public class Main {
 
         TreeMap<String,String> telephoneBook = new TreeMap<>();
         Scanner scanner = new Scanner(System.in);
+        System.out.println("•\tLIST - список всех абонентов\n•\tВведите имя или телефон");
 
         for (;;){
             String command = scanner.nextLine();
@@ -17,7 +18,7 @@ public class Main {
             if (command.matches("\\d+")){
                 if (check(telephoneBook,command)) System.out.println(checkAdd(telephoneBook,command));
                 else {
-                    System.out.println("Введите имя");
+                    System.out.print("Введите имя: ");
                     String name = scanner.nextLine();
                     telephoneBook.put(name,command);
                 }
@@ -25,7 +26,7 @@ public class Main {
             else {
                 if (telephoneBook.containsKey(command)) System.out.println(telephoneBook.get(command));
                 else {
-                    System.out.println("Введите номер");
+                    System.out.print("Введите номер: ");
                     String number = scanner.nextLine();
                     telephoneBook.put(command,number);
                 }
@@ -36,7 +37,7 @@ public class Main {
     }
 
     private static void listContains(Map<String, String> telephoneBook){
-        for (String contact : telephoneBook.keySet()) System.out.println(contact + " " + telephoneBook.get(contact));
+        for (String contact : telephoneBook.keySet()) System.out.println("***Телефонная книга***\n" + contact + " " + telephoneBook.get(contact));
     }
     private  static boolean check(Map<String, String> telephoneBook, String number){
         for (String contact : telephoneBook.keySet()) {
