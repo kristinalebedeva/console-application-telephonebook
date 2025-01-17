@@ -12,6 +12,7 @@ public class Main {
         for (;;){
             String command = scanner.nextLine();
             if (command.equals("LIST")) {
+                System.out.println("\n\t***Телефонная книга***");
                 listContains(telephoneBook);
                 continue;
             }
@@ -37,7 +38,7 @@ public class Main {
     }
 
     private static void listContains(Map<String, String> telephoneBook){
-        for (String contact : telephoneBook.keySet()) System.out.println("***Телефонная книга***\n" + contact + " " + telephoneBook.get(contact));
+        for (String contact : telephoneBook.keySet()) System.out.println(contact + " " + telephoneBook.get(contact));
     }
     private  static boolean check(Map<String, String> telephoneBook, String number){
         for (String contact : telephoneBook.keySet()) {
